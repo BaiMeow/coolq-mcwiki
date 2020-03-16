@@ -21,22 +21,24 @@ func init() {
 }
 
 func onPrivateMsg(subType, msgID int32, fromQQ int64, msg string, font int32) int32 {
-	if msg[0:4] != "wiki " {
+	if len(msg) < 6 || msg[:5] != "wiki " {
 		return 0
 	}
-	cqp.SendPrivateMsg(fromQQ, util.Escape(getURL(msg)))
+	keyword := msg[5:]
+	cqp.SendPrivateMsg(fromQQ, util.Escape(getURL(keyword)))
 	return 0
 }
 
 func onGroupMsg(subType, msgID int32, fromGroup int64, fromQQ int64, fromAnonymous string, msg string, font int32) int32 {
-	if msg[0:4] != "wiki " {
+	if len(msg) < 6 || msg[:5] != "wiki " {
 		return 0
 	}
-	cqp.SendGroupMsg(fromGroup, util.Escape(getURL(msg)))
+	keyword := msg[5:]
+	cqp.SendGroupMsg(fromGroup, util.Escape(getURL(keyword)))
 	return 0
 }
 
 func getURL(keyword string) string {
-	return url.QueryEscape("https://minecraft-zh.gamepedia.com/" + keyword)
+	return "https://minecraft-zh.gamepedia.com/" + url.QueryEscape(keyword)
 
 }
