@@ -10,7 +10,7 @@ import (
 //go:generate cqcfg -c .
 // cqp: 名称: McWikiDirect
 // cqp: 版本: 1.0.0:0
-// cqp: 作者: MscBaiMeow
+// cqp: 作者: BaiMeow
 // cqp: 简介: 贼水的URL拼接
 func main() { /*此处应当留空*/ }
 
