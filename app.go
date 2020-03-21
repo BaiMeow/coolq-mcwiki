@@ -4,7 +4,6 @@ import (
 	"net/url"
 
 	"github.com/Tnze/CoolQ-Golang-SDK/cqp"
-	"github.com/Tnze/CoolQ-Golang-SDK/cqp/util"
 )
 
 //go:generate cqcfg -c .
@@ -25,7 +24,7 @@ func onPrivateMsg(subType, msgID int32, fromQQ int64, msg string, font int32) in
 		return 0
 	}
 	keyword := msg[5:]
-	cqp.SendPrivateMsg(fromQQ, util.Escape(getURL(keyword)))
+	cqp.SendPrivateMsg(fromQQ, getURL(keyword))
 	return 0
 }
 
@@ -34,11 +33,11 @@ func onGroupMsg(subType, msgID int32, fromGroup int64, fromQQ int64, fromAnonymo
 		return 0
 	}
 	keyword := msg[5:]
-	cqp.SendGroupMsg(fromGroup, util.Escape(getURL(keyword)))
+	cqp.SendGroupMsg(fromGroup, getURL(keyword))
 	return 0
 }
 
 func getURL(keyword string) string {
-	return "https://minecraft-zh.gamepedia.com/" + url.QueryEscape(keyword)
+	return url.QueryEscape("https://minecraft-zh.gamepedia.com?search=" + keyword)
 
 }
