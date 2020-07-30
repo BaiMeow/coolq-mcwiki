@@ -38,6 +38,8 @@ func onGroupMsg(subType, msgID int32, fromGroup int64, fromQQ int64, fromAnonymo
 }
 
 func getURL(keyword string) string {
-	return "https://minecraft-zh.gamepedia.com?search=" + url.QueryEscape(keyword)
-
+	return "官方Wiki:\n" +
+		"https://minecraft-zh.gamepedia.com?search=" + url.QueryEscape(keyword) + "\n" +
+		"镜像Wiki:\n" +
+		"https://wiki.biligame.com/mc/" + url.QueryEscape(keyword)
 }
