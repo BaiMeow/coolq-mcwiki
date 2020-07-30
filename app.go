@@ -41,6 +41,5 @@ func getURL(keyword string) string {
 	return "官方Wiki:\n" +
 		"https://minecraft-zh.gamepedia.com?search=" + url.QueryEscape(keyword) + "\n" +
 		"镜像Wiki:\n" +
-		"https://wiki.biligame.com/mc/" + url.QueryEscape(keyword) +
-		"PS: 这两个链接都可以查看，在网络不佳的情况下镜像站速度更快"
+		"https://wiki.biligame.com/mc/" + url.QueryEscape(keyword)
 }
