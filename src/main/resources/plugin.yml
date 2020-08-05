@@ -1,0 +1,6 @@
+name: "mcwiki"
+author: "BaiMeow&Genanik"
+version: "0.1.0"
+main: "cn.miaoscraft.mcWiki.PluginMain"
+info: ""
+depends: []
